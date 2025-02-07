@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DemoDictionnaire;
 
-namespace DemoDictionnaire
+internal class Client
 {
-    internal class Client
-    {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-    }
+    public int Id { get; set; }
+    public string Nom { get; set; } = string.Empty;
 }
