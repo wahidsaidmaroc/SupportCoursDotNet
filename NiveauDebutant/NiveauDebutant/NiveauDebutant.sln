@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoVar", "DemoVar\DemoVar.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoGenerique", "DemoGenerique\DemoGenerique.csproj", "{117453AC-5602-4B69-AAD0-0D5018548A6C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{FD3B1C32-F4B4-47E5-998B-276BAEAA3009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoListGenerique", "DemoListGenerique\DemoListGenerique.csproj", "{8D1117C7-512B-4BED-909B-DEE1B8126A80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{117453AC-5602-4B69-AAD0-0D5018548A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{117453AC-5602-4B69-AAD0-0D5018548A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{117453AC-5602-4B69-AAD0-0D5018548A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1117C7-512B-4BED-909B-DEE1B8126A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1117C7-512B-4BED-909B-DEE1B8126A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1117C7-512B-4BED-909B-DEE1B8126A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1117C7-512B-4BED-909B-DEE1B8126A80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
