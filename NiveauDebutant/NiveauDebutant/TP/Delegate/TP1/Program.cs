@@ -1,8 +1,15 @@
-﻿// Déclaration du délégué
+﻿class Program
+{
+    
+// Déclaration du délégué
 public delegate int MathOperation(int a, int b);
 
-// Méthodes pour les opérations mathématiques
-public static int Add(int a, int b)
+
+    #region "Operation"
+
+
+    // Méthodes pour les opérations mathématiques
+    public static int Add(int a, int b)
 {
     return a + b;
 }
@@ -27,12 +34,14 @@ public static int Divide(int a, int b)
     return a / b;
 }
 
-// Méthode pour exécuter l'opération
-public static void ExecuteOperation(MathOperation operation, int a, int b)
-{
-    int result = operation(a, b);
-    Console.WriteLine("Le résultat est : " + result);
-}
+    #endregion
+
+    // Méthode pour exécuter l'opération
+//public static void ExecuteOperation(MathOperation operation, int a, int b)
+//{
+//    int result = operation(a, b);
+//    Console.WriteLine("Le résultat est : " + result);
+//}
 
 public static void Main()
 {
@@ -41,10 +50,11 @@ public static void Main()
     Console.WriteLine("2. Soustraction");
     Console.WriteLine("3. Multiplication");
     Console.WriteLine("4. Division");
-
     int choice = int.Parse(Console.ReadLine());
+
     Console.WriteLine("Entrez le premier nombre :");
     int num1 = int.Parse(Console.ReadLine());
+
     Console.WriteLine("Entrez le deuxième nombre :");
     int num2 = int.Parse(Console.ReadLine());
 
@@ -69,5 +79,10 @@ public static void Main()
             return;
     }
 
-    ExecuteOperation(operation, num1, num2);
+        int result = operation(num1, num2);
+        Console.WriteLine("Le résultat est : " + result);
+
+        //ExecuteOperation(operation, num1, num2);
+}
+
 }

@@ -29,9 +29,3 @@ public struct Point
         Console.WriteLine($"Point: ({X}, {Y})");
     }
 }
-
-
-void Example()
-{
-    int x = 10; // x est alloué sur la pile
-}
