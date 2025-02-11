@@ -1,4 +1,7 @@
-﻿//Exemple 1 : Record Simple
+﻿
+
+
+//Exemple 1 : Record Simple
 public record Person(string FirstName, string LastName);
 
 
