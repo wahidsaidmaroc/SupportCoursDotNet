@@ -1,7 +1,11 @@
 ﻿
 using DemoLinq;
 var etudiantService = new EtudiantService();
-var source = etudiantService.getList();
+var etudiants = etudiantService.getList();
+
+
+var groupeService = new GroupeService();
+var groupes = groupeService.getList();
 
 //#region "Old Method"
 //var listeEtudiantSup10 = new List<Etudiant>();
@@ -29,14 +33,34 @@ var source = etudiantService.getList();
 
 ////Linq par Methode
 //var ListLinqMethode = source.Where(item => item.note >= 10)
-       
-    
+
+
 //    .ToList();
+
+//Take : 
+var take = etudiants.OrderByDescending(a => a.note ).Take(5).ToList();
+
+//Skip
+var skipe = etudiants.Skip(5).ToList();
+
+foreach (var item in take)
+{
+    Console.WriteLine(item.nom);
+}
+
+//TakeWhile
+var takeWhile = etudiants.TakeWhile(a => a.note > 10).ToList();
+
+//Concat
+var liste1 = new int[] { 1, 2, 3, 4, 5 };
+var liste2 = new int[] { 6, 7, 8, 9, 10 };
+var numbers = liste1.Concat(liste2).ToList();
+
 
 
 
 //Linq Query
-var noms = from e in source
+var noms = from e in etudiants
            where e.note >= 10 
            orderby e.note descending
            select e.nom;
@@ -51,7 +75,7 @@ foreach (var item in noms)
 
 //by methode
 Console.WriteLine("Liste des étudiants ayant une note supérieure à 10");
-var linqMethode = source.Where(a => a.note > 10)
+var linqMethode = etudiants.Where(a => a.note > 10)
                     .Select(a => a.nom).ToList();
 linqMethode.ForEach(item => Console.WriteLine(item));
 
@@ -60,7 +84,7 @@ linqMethode.ForEach(item => Console.WriteLine(item));
 
 
 //Linq syntax Query 
-var l1 = from l in source
+var l1 = from l in etudiants
          where l.note > 2 && l.note < 6 
          select new { l.nom, message = "Tres faible", l.note };
 Console.WriteLine("Liste des étudiants ayant une note entre 2 et 6");
@@ -71,13 +95,13 @@ foreach (var item in l1)
 
 
 //Linq syntax Query 
-var l2 = from l in source
+var l2 = from l in etudiants
          where l.note > 12
          where l.note < 14
          orderby l.note descending
          select l;
 
-var lM = source.Where(a => a.note > 12).Where(l => l.note < 14);
+var lM = etudiants.Where(a => a.note > 12).Where(l => l.note < 14);
 
 
 foreach (var item in l1)
@@ -86,7 +110,7 @@ foreach (var item in l1)
 }
 
 
-var element = source.Where(e => e.id == 120).FirstOrDefault ();
+var element = etudiants.Where(e => e.id == 120).FirstOrDefault ();
 
 
 if (element == null)
@@ -106,7 +130,7 @@ else
 
 
 //Linq syntax Query 
-var result = from l in source
+var result = from l in etudiants
     where IsIntervalle(l)
     select l;
 
@@ -116,6 +140,18 @@ Console.WriteLine(item.nom);
 }
 
 
+
+var list = from g in groupes
+           join e in etudiants
+
+            on g.id equals e._idGroup
+
+           select new { nomEtudiant = e.nom, gr = g.nom , note = e.note };
+
+foreach (var item in list)
+{
+    Console.WriteLine("Nom : {1}        - Group {0}     - Note :{2}", item.gr, item.nomEtudiant, item.note);
+}
 
 
 
@@ -132,3 +168,7 @@ static bool IsIntervalle(Etudiant a)
     //other Conditions
     return a.note > 12 && a.note < 14;
 }
+
+
+
+
