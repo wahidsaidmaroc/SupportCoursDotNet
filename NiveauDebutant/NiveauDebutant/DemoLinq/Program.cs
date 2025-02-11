@@ -1,5 +1,19 @@
 ﻿
 using DemoLinq;
+using DemoLinq.GestionCom;
+
+
+
+var commande = new Commande();
+
+
+commande.Client.Id = 1;
+
+var client = new Client();
+
+int nbrCommande = client.Commandes.Count;
+var totalCommande = client.Commandes.Where(a => a.Status == true).Take(5).Sum(a => a.Total);
+
 var etudiantService = new EtudiantService();
 var etudiants = etudiantService.getList();
 
@@ -56,8 +70,9 @@ var liste1 = new int[] { 1, 2, 3, 4, 5 };
 var liste2 = new int[] { 6, 7, 8, 9, 10 };
 var numbers = liste1.Concat(liste2).ToList();
 
-
-
+// Type Of
+var numbersType = new object[] { 1, 2, 3, 4, 5, "Un", "Deux" , true};
+var myStrings = numbersType.OfType<string>().ToList();
 
 //Linq Query
 var noms = from e in etudiants
